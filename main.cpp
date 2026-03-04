@@ -1,11 +1,10 @@
-#include "Account.h"
-#include <vector>
+#include "Bank.h"
+#include <iostream>
+using namespace std;
 
 int main() {
-    vector<Account> accounts;
+    Bank bank;
     int choice;
-    int accNumber;
-    double amount;
 
     while (true) {
         cout << "\n====== BANK MANAGEMENT SYSTEM ======\n";
@@ -18,51 +17,17 @@ int main() {
 
         switch (choice) {
 
-            case 1: {
-                Account acc;
-                acc.createAccount();
-                accounts.push_back(acc);
+            case 1:
+                bank.createAccount();
                 break;
-            }
 
-            case 2: {
-                cout << "Enter Account Number: ";
-                cin >> accNumber;
-
-                bool found = false;
-                for (auto &acc : accounts) {
-                    if (acc.getAccountNumber() == accNumber) {
-                        cout << "Enter Amount: ";
-                        cin >> amount;
-                        acc.deposit(amount);
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (!found)
-                    cout << "Account Not Found\n";
+            case 2:
+                bank.deposit();
                 break;
-            }
 
-            case 3: {
-                cout << "Enter Account Number: ";
-                cin >> accNumber;
-
-                bool found = false;
-                for (auto &acc : accounts) {
-                    if (acc.getAccountNumber() == accNumber) {
-                        acc.display();
-                        found = true;
-                        break;
-                    }
-                }
-
-                if (!found)
-                    cout << "Account Not Found\n";
-
+            case 3:
+                bank.displayAccount();
                 break;
-            }
 
             case 4:
                 cout << "Exiting Program...\n";
