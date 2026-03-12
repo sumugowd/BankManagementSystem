@@ -23,6 +23,7 @@ This Project allows users to manage bank accounts with persistent storage.
 
 ## Project Structure
 
+```
 BankManagementSystem/
 │
 ├── main.cpp
@@ -32,6 +33,7 @@ BankManagementSystem/
 ├── Bank.cpp
 ├── accounts.txt
 └── README.md
+```
 
 ## How to Compile
 
