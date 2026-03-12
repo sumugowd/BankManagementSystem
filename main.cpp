@@ -10,8 +10,11 @@ int main() {
         cout << "\n====== BANK MANAGEMENT SYSTEM ======\n";
         cout << "1. Create Account\n";
         cout << "2. Deposit Money\n";
-        cout << "3. Display Account\n";
-        cout << "4. Exit\n";
+        cout << "3. Withdraw Money\n";
+        cout << "4. Display Account\n";
+        cout << "5. Delete Account\n";
+        cout << "6. Display All Accounts\n";
+        cout << "7. Exit\n";
         cout << "Enter Choice: ";
         cin >> choice;
 
@@ -26,10 +29,22 @@ int main() {
                 break;
 
             case 3:
-                bank.displayAccount();
+                bank.withdraw();
                 break;
 
             case 4:
+                bank.displayAccount();
+                break;
+
+            case 5:
+                bank.deleteAccount();
+                break;
+
+            case 6:
+                bank.displayAllAccounts();
+                break;
+
+            case 7:
                 cout << "Exiting Program...\n";
                 return 0;
 

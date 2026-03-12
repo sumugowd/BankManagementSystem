@@ -12,10 +12,12 @@ private:
 
 public:
     Account();
+    Account(int accNo, string nm ,double bal);
     void createAccount();
     void deposit(double amount);
+    void withdraw(double amount);
     void display() const;
-
+    
     int getAccountNumber() const;
     double getBalance() const;
     string getName() const;

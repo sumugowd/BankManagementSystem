@@ -16,7 +16,10 @@ class Bank {
 
     void createAccount();
     void deposit();
+    void withdraw();
     void displayAccount();
+    void deleteAccount();
+    void displayAllAccounts();
 
     void saveToFile();
     void loadFromFile();

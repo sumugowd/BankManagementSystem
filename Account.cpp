@@ -7,6 +7,12 @@ Account::Account() {
     balance = 0.0;
 }
 
+Account::Account(int accNo, string n, double bal){
+    accountNumber = accNo;
+    name = n;
+    balance = bal;
+}
+
 // Create Account
 void Account::createAccount() {
     cout << "Enter Account Number: ";
@@ -32,6 +38,16 @@ void Account::display() const {
 void Account::deposit(double amount) {
     balance += amount;
     cout << "Amount Deposited Successfully\n";
+}
+
+void Account::withdraw(double amount){
+    if(amount > balance){
+        cout << "Insufficient Balance\n";
+        return;
+    }
+
+    balance -= amount;
+    cout << "Withdrawl Successful\n";
 }
 
 int Account::getAccountNumber() const {
