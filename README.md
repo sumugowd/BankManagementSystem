@@ -37,15 +37,17 @@ BankManagementSystem/
 
 ## How to Compile
 
+```
 g++ *.cpp -o bank.exe
+```
 
 ## How to Run
 
+```
 bank.exe
-
+```
 
 ## Example Menu
-
 
 ====== BANK MANAGEMENT SYSTEM ======
 
@@ -62,7 +64,6 @@ bank.exe
 6. Display All Accounts
 
 7. Exit
-
 
 ## Learning Outcomes
 

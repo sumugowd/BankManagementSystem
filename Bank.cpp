@@ -12,8 +12,19 @@ Bank::Bank() {
 void Bank::createAccount() {
     Account acc;
     acc.createAccount();
+
+    int accNo = acc.getAccountNumber();
+
+    for(const auto &a : accounts){
+        if(a.getAccountNumber() == accNo){
+            cout << "Account number already exists\n";
+            return;
+        }
+    }
     accounts.push_back(acc);
     saveToFile();
+
+    cout << "Account created successfully\n";
 }
 
 void Bank::deposit() {
@@ -111,11 +122,17 @@ void Bank::displayAllAccounts(){
         return;
     }
 
-    cout << "\n ------ All Bank Accounts ------\n";
+    cout << "\n--------------------------------------\n";
+    cout << "----------- All Bank Accounts------------";
+    cout << "\n--------------------------------------\n";
+    
+    cout << "AccountNo\tName\t\tBalance";
+    cout << "\n---------------------------------------\n";
 
     for(const auto &acc : accounts){
-        acc.display();
-        cout << endl;
+        cout << acc.getAccountNumber() <<"\t\t"
+        << acc.getName() << "\t\t"
+        << acc.getBalance() << endl;
     }
 }
 
@@ -142,7 +159,11 @@ void Bank::loadFromFile() {
     string name;
     double balance;
 
-    while (file >> accNumber >> name >> balance) {
+    while (file >> accNumber) {
+        file.ignore();
+        getline(file, name, '|');
+        file >> balance;
+        
         Account acc(accNumber, name, balance);
         accounts.push_back(acc);
     }

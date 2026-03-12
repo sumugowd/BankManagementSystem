@@ -25,7 +25,6 @@ void Account::createAccount() {
 
     cout << "Enter balance: ";
     cin >> balance;
-    cout << "\n Account Created Successfully!\n";
 }
 
 // Display
@@ -36,11 +35,19 @@ void Account::display() const {
 }
 
 void Account::deposit(double amount) {
+    if(amount <= 0){
+        cout << "Invalid deposit amount\n";
+        return;
+    }
     balance += amount;
     cout << "Amount Deposited Successfully\n";
 }
 
 void Account::withdraw(double amount){
+    if(amount <= 0){
+        cout << "Invalid withdrawl amount\n";
+        return;
+    }
     if(amount > balance){
         cout << "Insufficient Balance\n";
         return;
